@@ -4,20 +4,22 @@ function get_user_input()
 {
 	msg=$1
 	default=$2
+	var=$3
 
 	echo -n "$msg [$default]: "
-	read val
+	#read val
+	val=""
 
 	if [ "$val" == "" ]; then
-		echo $default;
+		eval "$var=$default"
 	else
-		echo $val;
+		eval "$var=$val"
 	fi
 } 
 
-wan_iface = $(get_user_input 'Type the name of the WAN interface', 'eth0')
-lan_iface = $(get_user_input 'Type the name of the LAN interface', 'eth1')
-lan_ip = $(get_user_input 'Type the IP of the LAN interface', '192.168.1.1')
+get_user_input 'Type the name of the WAN interface' eth0 wan_iface
+get_user_input 'Type the name of the LAN interface' eth1 lan_iface
+get_user_input 'Type the IP of the LAN interface (GW)' '192.168.1.1' lan_ip
 
-echo "Installing WAN $wan_iface and LAN $lan_iface ($lan_ip)"
+source set_forwards_nat_routing.sh $wan_iface $lan_iface $lan_ip "/home/nico"
 
