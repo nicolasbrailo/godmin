@@ -5,6 +5,7 @@ LAN_IP=$2
 ROUTER_HOME=$3
 
 BIND_CFG=/etc/bind/named.conf.local
+BIND_APPARMOR_CFG=/etc/apparmor.d/usr.sbin.named
 
 BIND_DIR=$ROUTER_HOME"/bind"
 BIND_LOGS=$BIND_DIR"/dns.log"
@@ -82,4 +83,18 @@ else
 	echo "Created dns zone $BIND_TLD"
 fi
 
+if [ ! -f $BIND_APPARMOR_CFG ]; then
+	echo "No apparmor detected; remember to configure it, if you install it later"
+else
+	x=$(cat $BIND_APPARMOR_CFG | grep $BIND_DIR | wc -l)
+	if (( $x!=0 )); then
+		echo "Apparmor seems already configured for $BIND_DIR, won't alter it"
+	else
+		echo "$BIND_DIR/** rw," >> $BIND_APPARMOR_CFG
+		echo "$BIND_DIR/ rw," >> $BIND_APPARMOR_CFG
+		echo "Apparmor configuration updated for $BIND_DIR"
+	fi
+fi
+
+# TODO: Setup $BIND_DIR so it's writable by bind user
 
