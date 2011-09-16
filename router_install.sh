@@ -23,8 +23,9 @@ function get_user_input()
 	default=$2
 	var=$3
 
-	echo -n "$msg [$default]: "
-	read val
+	#echo -n "$msg [$default]: "
+	#read val
+	val=""
 
 	if [ "$val" == "" ]; then
 		eval "$var=$default"
@@ -36,21 +37,12 @@ function get_user_input()
 get_user_input 'Type the name of the WAN interface' eth0 wan_iface
 get_user_input 'Type the name of the LAN interface' eth1 lan_iface
 get_user_input 'Type the IP of the LAN interface (GW)' '192.168.1.1' lan_ip
+get_user_input 'Type a custom TLD for the network' 'lan' lan_tld
 
-# source set_forwards_nat_routing.sh $wan_iface $lan_iface $lan_ip "/home/nico"
+ROUTER_HOME="/home/nico"
 
-
-
-
-
-
-
-
-
-
-
-
-
+# source set_forwards_nat_routing.sh $wan_iface $lan_iface $lan_ip $ROUTER_HOME
+source set_bind.sh $lan_ip $lan_tld $ROUTER_HOME
 
 
 
