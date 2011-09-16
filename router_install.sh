@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
 function get_user_input()
 {
 	msg=$1
@@ -7,8 +12,7 @@ function get_user_input()
 	var=$3
 
 	echo -n "$msg [$default]: "
-	#read val
-	val=""
+	read val
 
 	if [ "$val" == "" ]; then
 		eval "$var=$default"

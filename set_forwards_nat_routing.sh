@@ -21,8 +21,10 @@ FWDS_SCRIPT=set_forwards.sh
 
 
 # Create a configuration for each interface
+echo -e "\n\nConfiguring interfaces..."
+
 WAN_IFACE_CFG="auto $WAN_IFACE\n
-					iface $WAN_IFACE inet dhcp"
+					iface $WAN_IFACE inet dhcp\n"
 
 LAN_IFACE_CFG="auto $LAN_IFACE\n
 						iface $LAN_IFACE inet static\n
@@ -57,11 +59,10 @@ fi
 
 
 
-echo "Setting up ipv4 forwarding as a permanent rule in $SYSCTL_CFG"
+echo -e "\n\nSetting up ipv4 forwarding as a permanent rule in $SYSCTL_CFG..."
 cat $SYSCTL_CFG | grep -v $IP_FWD_CFG > /tmp/sysctl.conf
 echo "$IP_FWD_CFG = 1" >> /tmp/sysctl.conf
 mv /tmp/sysctl.conf $SYSCTL_CFG
-rm /tmp/sysctl.conf
 
 echo "Restarting networking services"
 /./$NETWORKING_SCRIPT restart
@@ -69,28 +70,32 @@ echo "Restarting networking services"
 
 
 # Set up forwards
+echo -e "\n\nWriting startup setup scripts..."
 SET_FWDS_SCRIPT_FILE=$ROUTER_HOME"/"$SET_FWDS_SCRIPT
 FWDS_SCRIPT_FILE=$ROUTER_HOME"/"$FWDS_SCRIPT
 
 # Create the forwardings setup file
-echo "#!/bin/bash" > $SET_FWDS_SCRIPT
-echo "echo 1 > $IP_FWD_CFG" >> $SET_FWDS_SCRIPT
+echo "#!/bin/bash" > $SET_FWDS_SCRIPT_FILE
+echo "echo 1 > $IP_FWD_CFG" >> $SET_FWDS_SCRIPT_FILE
 echo "iptables --table nat --append POSTROUTING " \
-			"--out-interface $WAN_IFACE -j MASQUERADE" >> $SET_FWDS_SCRIPT
-echo "iptables --append FORWARD --in-interface $LAN_IFACE -j ACCEPT" >> $SET_FWDS_SCRIPT
-chmod +x $SET_FWDS_SCRIPT
+			"--out-interface $WAN_IFACE -j MASQUERADE" >> $SET_FWDS_SCRIPT_FILE
+echo "iptables --append FORWARD --in-interface $LAN_IFACE -j ACCEPT" >> $SET_FWDS_SCRIPT_FILE
+chmod +x $SET_FWDS_SCRIPT_FILE
 
 source $SET_FWDS_SCRIPT_FILE
 
 # We will also need this file for each individual forwarding
-touch $FWDS_SCRIPT_FILE
-chmod +x $FWDS_SCRIPT_FILE
+if [ ! -e $FWDS_SCRIPT_FILE ]; then
+	echo "Created $FWDS_SCRIPT_FILE"
+	touch $FWDS_SCRIPT_FILE
+	chmod +x $FWDS_SCRIPT_FILE
+fi
 
 
 
 
 # Call our startup script from within a system startup script
-echo "Installing a hook to set forwardings on each startup..."
+echo -e "\n\nInstalling a hook to set forwardings on each startup..."
 
 # Do black magic to escape / into \/
 ESCAPED1=$(echo $SET_FWDS_SCRIPT_FILE| sed 's/\//\\\//g')
@@ -102,11 +107,21 @@ ESCAPED2=$(echo $FWDS_SCRIPT_FILE| sed 's/\//\\\//g')
 # For some reason it won't work w/o this spell
 ESCAPED2=$(echo $ESCAPED2| sed 's/.sh/\\.\\sh/g')
 
-cat $STARTUP_SCRIPT | \
-	sed "s/do_start()/. $ESCAPED1\n. $ESCAPED2\n\ndo_start()/g" > /tmp/startupscript
+# If the hook has already been installed, skip
+CFG=$(cat $STARTUP_SCRIPT | grep $ESCAPED1 | wc -l)
+if (($CFG!=0)); then
+	cat $STARTUP_SCRIPT | \
+		sed "s/do_start()/. $ESCAPED1\ndo_start()/g" > /tmp/startupscript
+	mv /tmp/startupscript $STARTUP_SCRIPT
+fi
 
-mv /tmp/startupscript $STARTUP_SCRIPT
-rm /tmp/startupscript
+CFG=$(cat $STARTUP_SCRIPT | grep $ESCAPED2 | wc -l)
+if (($CFG!=0)); then
+	cat $STARTUP_SCRIPT | \
+		sed "s/do_start()/. $ESCAPED2\n\ndo_start()/g" > /tmp/startupscript
+	mv /tmp/startupscript $STARTUP_SCRIPT
+fi
+
 echo "Installed call to $SET_FWDS_SCRIPT_FILE in $STARTUP_SCRIPT"
 echo "Installed call to $FWDS_SCRIPT_FILE in $STARTUP_SCRIPT"
 
