@@ -9,7 +9,7 @@ ROUTER_HOME=$4
 # TODO: Check recv parameters
 
 # Local configs
-IP_FWD_CFG=/proc/sys/net/ipv4/ip_forward
+PROC_IP_FWD_CFG=/proc/sys/net/ipv4/ip_forward
 IFACES_CFG=/etc/network/interfaces
 NETWORKING_SCRIPT=/etc/init.d/networking
 IP_FWD_CFG=net.ipv4.ip_forward
@@ -76,7 +76,7 @@ FWDS_SCRIPT_FILE=$ROUTER_HOME"/"$FWDS_SCRIPT
 
 # Create the forwardings setup file
 echo "#!/bin/bash" > $SET_FWDS_SCRIPT_FILE
-echo "echo 1 > $IP_FWD_CFG" >> $SET_FWDS_SCRIPT_FILE
+echo "echo 1 > $PROC_IP_FWD_CFG" >> $SET_FWDS_SCRIPT_FILE
 echo "iptables --table nat --append POSTROUTING " \
 			"--out-interface $WAN_IFACE -j MASQUERADE" >> $SET_FWDS_SCRIPT_FILE
 echo "iptables --append FORWARD --in-interface $LAN_IFACE -j ACCEPT" >> $SET_FWDS_SCRIPT_FILE

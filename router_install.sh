@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PREREQS="bind9" # isc-dhcp-server"
+PREREQS="bind9 isc-dhcp-server"
 
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
@@ -23,7 +23,7 @@ function get_user_input()
 	default=$2
 	var=$3
 
-	#echo -n "$msg [$default]: "
+	echo -n "$msg [$default]: "
 	#read val
 	val=""
 
@@ -38,11 +38,17 @@ get_user_input 'Type the name of the WAN interface' eth0 wan_iface
 get_user_input 'Type the name of the LAN interface' eth1 lan_iface
 get_user_input 'Type the IP of the LAN interface (GW)' '192.168.1.1' lan_ip
 get_user_input 'Type a custom TLD for the network' 'lan' lan_tld
+get_user_input 'Type an IP for the WAN router (if any)' '' wan_router_ip
+get_user_input 'Enter the home directory for the router' '/home/router' router_home
 
-ROUTER_HOME="/home/nico"
+mkdir -p $router_home
 
-# source set_forwards_nat_routing.sh $wan_iface $lan_iface $lan_ip $ROUTER_HOME
-source set_bind.sh $lan_ip $lan_tld $ROUTER_HOME
+echo "Setting up IP forwards and NAT..."
+source set_forwards_nat_routing.sh $wan_iface $lan_iface $lan_ip $router_home
 
-
+# echo -e "\n\nSetting up DNS server..."
+# source set_bind.sh $lan_ip $lan_tld $router_home
+# 
+# echo -e "\n\nSetting up DHCP server..."
+# source set_dhcp.sh $lan_ip $lan_tld $router_home $wan_router_ip 
 

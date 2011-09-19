@@ -1,0 +1,14 @@
+Godmin is intended as an application to *easily administrate a Linux based gateway*, but *not as a one size fits all* tool; Godmin was created with a very narrow audience in mind, it was created as a tool to easily administrate a Debian based gateway running ISC, bind and iptables, for a small to mid size LAN (10 to a 100 clients). You might find Godmin useful if you:
+
+  * Want to setup a Debian based router, with as little configuration as possible
+  * Are running ISC and Bind9
+  * Have more than 10 clients (less than that, you might find it easier to run a regular router)
+  * Have less than a 100 clients (more than that and you'll start missing things like load balancing or vlans)
+
+*Godmin comes as a two part package, an install script and a web application*. The install script will setup the router, whereas the web application will allow you to easily administer the services the router provides (NAT, port forwarding, DHCP and DNS).
+
+The install script is rather brittle and may break if you are not running the setup Godmin expects. The web application is somewhat more resilient, and only depends on ISC and Bind files adhering to a certain syntax. *You might find the web application useful even if the install script is not suitable for you*.
+
+In any case, you should have at least an idea of how to configure Linux services; it is most likely that you will have to meddle with some configuration files, even if the setup script is successful.
+
+

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-LAN_TLD=$1
-LAN_IP=$2
+LAN_IP=$1
+LAN_TLD=$2
 ROUTER_HOME=$3
 
 BIND_CFG=/etc/bind/named.conf.local
@@ -90,8 +90,15 @@ else
 	if (( $x!=0 )); then
 		echo "Apparmor seems already configured for $BIND_DIR, won't alter it"
 	else
-		echo "$BIND_DIR/** rw," >> $BIND_APPARMOR_CFG
-		echo "$BIND_DIR/ rw," >> $BIND_APPARMOR_CFG
+		# Find the closing brace for the apparmor cfg
+		ln=$( cat $BIND_APPARMOR_CFG | grep -n '}' | tail -n1 | awk -F':' '{print $1}' )
+		# Write everything but the closing brace
+		head -n$(($ln-1)) $BIND_APPARMOR_CFG > /tmp/apparmor_cfg
+
+		echo -e "\t$BIND_DIR/** rw," >> /tmp/apparmor_cfg
+		echo -e "\t$BIND_DIR/ rw," >> /tmp/apparmor_cfg
+		echo "}" >> /tmp/apparmor_cfg 
+		mv /tmp/apparmor_cfg $BIND_APPARMOR_CFG
 		echo "Apparmor configuration updated for $BIND_DIR"
 	fi
 fi
