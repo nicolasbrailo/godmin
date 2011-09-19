@@ -35,6 +35,9 @@ if ($filter_ip == '') $filter_ip = NETWORK_IP;
 
 <p>Keep in mind the DNS logs might be huge. If this script doesn't work try increasing PHP's memory limits and timeouts.</p>
 
+<table width="100%">
+<tr>
+<td>
 <form>
 <p>
 Show logs for IP 
@@ -52,6 +55,11 @@ Filter URLs by
 
 <input type="submit" value="Search"/>
 </form>
+</td>
+<td><img src="img/ceiling_cat.png" height="180px"/></td>
+</tr></table>
+
+<hr/>
 
 <? if ($run_cmd) { 
 	echo "Using the following command:<br/>";
