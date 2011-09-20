@@ -2,7 +2,7 @@
 include_once "DHCP_Parser.php";
 include_once "models/Host.php";
 
-class LeaseParser extends DHCP_Parser
+class Lease_Parser extends DHCP_Parser
 {
 	const LEASE_TOKEN = "lease ";
 	const STARTS_TOKEN = "starts ";

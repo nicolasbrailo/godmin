@@ -1,7 +1,7 @@
 <?
 include_once "DHCP_Parser.php";
 
-class SubnetsParser extends DHCP_Parser
+class Subnets_Parser extends DHCP_Parser
 {
 	const SUBNET_TOKEN = "subnet ";
 	const NETMASK_TOKEN = "netmask";

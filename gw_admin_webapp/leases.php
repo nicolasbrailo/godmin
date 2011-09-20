@@ -1,8 +1,8 @@
 <?
-include_once 'parsers/LeaseParser.php';
+include_once 'parsers/Lease_Parser.php';
 include_once 'config.php';
 
-$lp = new LeaseParser();
+$lp = new Lease_Parser();
 $leases = $lp->parse(file_get_contents(LEASES_FILE));
 ?>
 

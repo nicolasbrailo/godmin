@@ -2,7 +2,7 @@
 include_once "DHCP_Parser.php";
 include_once "models/Host.php";
 
-class StaticHostsParser extends DHCP_Parser
+class Static_Hosts_Parser extends DHCP_Parser
 {
 	const HOST_TOKEN = "host ";
 	const MAC_TOKEN = "ethernet ";

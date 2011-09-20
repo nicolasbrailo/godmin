@@ -1,7 +1,7 @@
 <?
-include_once 'parsers/ForwardingsParser.php';
+include_once 'parsers/Forwardings_Parser.php';
 include_once 'parsers/StaticHostsParser.php';
-include_once 'parsers/DNSParser.php';
+include_once 'parsers/DNS_Parser.php';
 include_once 'config.php';
 
 
@@ -40,7 +40,7 @@ class GetHostFromCfg
 		if (!isset($host->ip) or $host->ip == '') return $host;
 
 		$forwardings_cfg = file_get_contents(FORWARDINGS_FILE);
-		$forwardings = new ForwardingsParser($forwardings_cfg);
+		$forwardings = new Forwardings_Parser($forwardings_cfg);
 		$host->set_forwardings($forwardings->get_rules_for($host->ip));
 
 		$dnsp = new DNS_Parser();

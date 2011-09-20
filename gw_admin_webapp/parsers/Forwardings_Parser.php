@@ -1,7 +1,7 @@
 <?
 include_once 'models/Forward.php';
 
-class ForwardingsParser
+class Forwardings_Parser
 {
 	const PUBLIC_FWD_RULE = 'iptables -t nat -A PREROUTING -i eth0 -p tcp -j DNAT';
 

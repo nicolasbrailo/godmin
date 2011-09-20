@@ -1,13 +1,13 @@
 <?
-include_once 'parsers/StaticHostsParser.php';
-include_once 'parsers/ForwardingsParser.php';
-include_once 'parsers/DNSParser.php';
+include_once 'parsers/Static_Hosts_Parser.php';
+include_once 'parsers/Forwardings_Parser.php';
+include_once 'parsers/DNS_Parser.php';
 include_once 'config.php';
 
-$sp = new StaticHostsParser();
+$sp = new Static_Hosts_Parser();
 
 $hosts = $sp->parse(file_get_contents(STATIC_HOSTS_FILE));
-$forwardings = new ForwardingsParser(file_get_contents(FORWARDINGS_FILE));
+$forwardings = new Forwardings_Parser(file_get_contents(FORWARDINGS_FILE));
 
 $dnsp = new DNS_Parser();
 $dnsp->parse(file_get_contents(NAMED_FILE));

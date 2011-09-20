@@ -21,7 +21,7 @@ if (isset($_POST["mac"]))
 	file_put_contents(STATIC_HOSTS_FILE, $dhcpd_cfg);
 
 	// Write forwardings file
-	$forwardings = new ForwardingsParser(file_get_contents(FORWARDINGS_FILE));
+	$forwardings = new Forwardings_Parser(file_get_contents(FORWARDINGS_FILE));
 	$forwardings->delete_rules_for($host->ip);
 	file_put_contents(FORWARDINGS_FILE, $forwardings->get_cfg());
 

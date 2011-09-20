@@ -1,8 +1,8 @@
 <?
 include_once 'config.php';
-include_once 'parsers/SubnetsParser.php';
+include_once 'parsers/Subnets_Parser.php';
 
-$sp = new SubnetsParser();
+$sp = new Subnets_Parser();
 ?>
 
 <link rel="stylesheet" href="style.css">

@@ -1,5 +1,5 @@
 <?
-include_once 'parsers/DNSParser.php';
+include_once 'parsers/DNS_Parser.php';
 include_once 'GetHostFromCfg.php';
 include_once 'RestartRouter.php';
 
@@ -68,7 +68,7 @@ if ($h !== null)
 
 
 // Read the forwardings, check for errors
-$forwardings = new ForwardingsParser(file_get_contents(FORWARDINGS_FILE));
+$forwardings = new Forwardings_Parser(file_get_contents(FORWARDINGS_FILE));
 $forwardings->delete_rules_for($host->ip);
 $forwardings->delete_rules_for($host->old_ip);
 foreach ($host->forwardings as $f)
