@@ -46,7 +46,7 @@ while (isset($_POST[$a.$i]))
 }
 
 // Read the static hosts config, validate the changes
-$sp = new StaticHostsParser();
+$sp = new Static_Hosts_Parser();
 $sp->parse(file_get_contents(STATIC_HOSTS_FILE));
 $sp->add_or_modify_host($host);
 
