@@ -16,7 +16,7 @@ $dnsp->parse(file_get_contents(NAMED_FILE));
 <link rel="stylesheet" href="style.css">
 
 <? include 'menu.php' ?>
-
+<div id="content">
 <h1>List of static DHCP hosts</h2>
 <? foreach($hosts as $host) { ?>
 <table class="sample" width="800px">
@@ -62,3 +62,4 @@ $dnsp->parse(file_get_contents(NAMED_FILE));
 <br>
 <? } ?>
 
+</div>

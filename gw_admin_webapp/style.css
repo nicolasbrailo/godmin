@@ -97,6 +97,15 @@ table.sample td {
 	background-color: white;
 }
 
+#content {
+	padding:15px;
+	font-size:12px;
+	color:#000;
+	background:-moz-linear-gradient(0% 100% 90deg,#efefef, #ffffff);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#efefef));
+}
+
+
 #ceilingcat {
 	float: right;
 	width: 150px;
