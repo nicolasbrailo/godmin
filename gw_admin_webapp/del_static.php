@@ -7,7 +7,7 @@ if (isset($_POST["mac"]))
 	$hr = new GetHostFromCfg();
 	$host = $hr->read_host_from_cfg($_POST["mac"]);
 
-	$sp = new StaticHostsParser();
+	$sp = new Static_Hosts_Parser();
 	$sp->parse(file_get_contents(STATIC_HOSTS_FILE));
 
 	// Write the dhcp file
@@ -76,6 +76,6 @@ MAC <?= $host->mac ?>.<br>
 
 <form method="POST">
 <input type="hidden" name="mac" value="<?= $host->mac ?>"/>
-<input type="submit"/>
+<input type="submit" value="Confirm delete"/>
 </form>
 
