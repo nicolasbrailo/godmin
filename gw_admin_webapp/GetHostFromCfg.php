@@ -1,6 +1,6 @@
 <?
 include_once 'parsers/Forwardings_Parser.php';
-include_once 'parsers/StaticHostsParser.php';
+include_once 'parsers/Static_Hosts_Parser.php';
 include_once 'parsers/DNS_Parser.php';
 include_once 'config.php';
 
@@ -9,7 +9,7 @@ class GetHostFromCfg
 {
 	function get_static_host($mac)
 	{
-		$sp = new StaticHostsParser();
+		$sp = new Static_Hosts_Parser();
 		$sp->parse(file_get_contents(STATIC_HOSTS_FILE));
 
 		$f = create_function('$h', 'return $h->mac == \''.$mac.'\';');

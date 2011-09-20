@@ -1,5 +1,4 @@
 <?
-include_once 'parsers/StaticHostsParser.php';
 include_once 'GetHostFromCfg.php';
 include_once 'config.php';
 
