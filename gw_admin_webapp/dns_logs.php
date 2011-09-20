@@ -35,9 +35,15 @@ if ($filter_ip == '') $filter_ip = NETWORK_IP;
 
 <p>Keep in mind the DNS logs might be huge. If this script doesn't work try increasing PHP's memory limits and timeouts.</p>
 
+
+
 <table width="100%">
 <tr>
 <td>
+<? if ((stristr($filter_url,"porn"))||(stristr($filter_url,"sex"))){ ?>
+<div id="ceilingcat">Ceiling Cat is watching you masturbate<br/>&nbsp;<br/><img src="img/ceiling_cat.png" width="150" height="82" alt="Ceiling Cat is watching you masturbate" /></div>
+<? } ?>
+
 <form>
 <p>
 Show logs for IP 
@@ -56,7 +62,6 @@ Filter URLs by
 <input type="submit" value="Search"/>
 </form>
 </td>
-<td><img src="img/ceiling_cat.png" height="180px"/></td>
 </tr></table>
 
 <hr/>

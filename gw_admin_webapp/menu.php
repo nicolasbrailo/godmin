@@ -10,23 +10,23 @@ $currentpage = $file[count($file) - 1];
                 </a>
         </li>
 
-        <li <? if ($currentpage=="leases.php"){ ?> class="active"<? } ?>>
+        <li<? if ($currentpage=="leases.php"){ ?> class="active"<? } ?>>
                 <a href="leases.php">Known DHCP Leases</a>
         </li>
 
-        <li <? if ($currentpage=="subnets.php"){ ?> class="active"<? } ?>>
+        <li<? if ($currentpage=="subnets.php"){ ?> class="active"<? } ?>>
                 <a href="subnets.php">Configure DHCP subnets</a>
         </li>
 
-        <li <? if ($currentpage=="static_hosts.php"){ ?> class="active"<? } ?>>
+        <li<? if ($currentpage=="static_hosts.php"){ ?> class="active"<? } ?>>
                 <a href="static_hosts.php">Static hosts</a>
         </li>
 
-        <li <? if ($currentpage=="dns_logs.php"){ ?> class="active"<? } ?>>
+        <li<? if ($currentpage=="dns_logs.php"){ ?> class="active"<? } ?>>
                 <a href="dns_logs.php">DNS Logs</a>
         </li>
 
-        <li <? if ($currentpage=="content_filter.php"){ ?> class="active"<? } ?>>
+        <li<? if ($currentpage=="content_filter.php"){ ?> class="active"<? } ?>>
                 <a href="content_filter.php">Content Filter</a>
         </li>
 </ul>
