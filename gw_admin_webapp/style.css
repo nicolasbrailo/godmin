@@ -1,3 +1,77 @@
+/* CSS Reset by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
+-------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td 
+						{background: transparent;border: 0;margin: 0; padding: 0; vertical-align: baseline;list-style:none}
+body 					{line-height: 1;}
+h1, h2, h3, h4, h5, h6 	{clear: both;font-weight: normal;}
+ol, ul 					{list-style: none;}
+blockquote 				{quotes: none;}
+blockquote:before, blockquote:after {content: '';content: none;}
+del 					{text-decoration: line-through;}
+table 					{border-collapse: collapse;	border-spacing: 0;}
+
+
+body					{font-family:Arial, Helvetica, sans-serif;}
+
+ul.sandbar {
+	
+	background: #848383;
+	font-size:13px;
+	font-weight:bold;
+	color:#3366cc;
+	overflow:hidden;
+	
+	background:-moz-linear-gradient(0% 100% 90deg,#6699CC, #003366);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#003366), to(#6699CC));
+}
+ul.sandbar li {
+	float:left;
+	padding:10px 12px;
+}
+
+ul.sandbar li#logo {
+	padding:0 5px;
+	background-color: transparent;
+	cursor:pointer;
+}
+
+
+ul.sandbar li a, ul.sandbar li a:visited, ul.sandbar li a:link {
+	text-decoration:none;
+	color:#99ccff;
+}
+
+ul.sandbar li.active {
+	color:#006699;
+	background:-moz-linear-gradient(0% 100% 90deg,#ffffff, #49A5D1);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#49A5D1), to(#ffffff));
+	cursor:pointer;
+}
+
+ul.sandbar li.active a{
+	color:#006699;
+}
+
+ul.sandbar li:hover	{
+	color:#006699;
+	background:-moz-linear-gradient(0% 100% 90deg,#ffffff, #49A5D1);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#49A5D1), to(#ffffff));
+	cursor:pointer;
+}
+
+ul.sandbar li#logo:hover {
+	background:-moz-linear-gradient(0% 100% 90deg,#6699CC, #003366);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#003366), to(#6699CC));
+}
+
+
+ul.sandbar li:hover a{
+	color:#006699;
+}
+
+
 table.sample {
 	border-width: 1px;
 	border-spacing: 0px;
@@ -12,7 +86,6 @@ table.sample th {
 	border-style: inset;
 	border-color: gray;
 	background-color: white;
-	-moz-border-radius: ;
 }
 table.sample td {
 	border-width: 1px;
@@ -20,5 +93,4 @@ table.sample td {
 	border-style: inset;
 	border-color: gray;
 	background-color: white;
-	-moz-border-radius: ;
 }
