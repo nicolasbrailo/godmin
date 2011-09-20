@@ -87,7 +87,7 @@ for ($i = 0; $i < $dns; ++$i) print_dns($i+$dns_i, $host->tld);
 
 </table>
 
-<input type="submit"/>
+<input type="submit" value="Save"/>
 
 </form>
 
@@ -95,7 +95,7 @@ for ($i = 0; $i < $dns; ++$i) print_dns($i+$dns_i, $host->tld);
 <table class="sample" width="800px">
 <tr><td>IP</td><td>MAC</td><td>Hostname</td></tr>
 <? 
-$sp = new StaticHostsParser();
+$sp = new Static_Hosts_Parser();
 $sp->parse(file_get_contents(STATIC_HOSTS_FILE));
 foreach($sp->hosts as $lease) { ?>
 	<tr>

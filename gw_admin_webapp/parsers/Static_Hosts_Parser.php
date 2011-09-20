@@ -18,7 +18,7 @@ class Static_Hosts_Parser extends DHCP_Parser
 		array_push($this->hosts, $h);
 	}
 
-	function get_block_start_tok() { return self::HOST_TOKEN; }
+	function get_block_start_tok() { return "\n".self::HOST_TOKEN; }
 
 	function get_list(){ return $this->hosts; }
 
