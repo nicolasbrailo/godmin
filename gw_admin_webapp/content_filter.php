@@ -1,5 +1,11 @@
 <?
 include_once 'config.php';
+
+function restart_filter()
+{
+	exec("sudo /bin/bash ".CONTENT_FILTER_RESTART);
+}
+
 include_once 'parsers/Content_Filter_Parser.php';
 
 $cf = new Content_Filter_Parser();
@@ -42,6 +48,7 @@ if (isset($_POST["new_filter_name"]))
 		file_put_contents(CONTENT_FILTER_CONF, $conf, LOCK_EX);
 		$cf->clear();
 		$cf->parse(file_get_contents(CONTENT_FILTER_CONF));
+		restart_filter();
 	}else{
 		echo "Couldn't delete ".$cf->get_file_for($_POST["filter_name"]);
 	}
@@ -49,6 +56,7 @@ if (isset($_POST["new_filter_name"]))
 }else if (isset($_POST["filter_name"])){
 	$fname = $cf->get_file_for($_POST["filter_name"]);
 	file_put_contents($fname, $_POST["filter_contents"], LOCK_EX);
+	restart_filter();
 }
 ?>
 

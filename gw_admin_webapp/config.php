@@ -9,6 +9,7 @@ define("NAMED_LOG", "/home/router/named/dns.log");
 define("RESTART_CMD", "/./home/router/restart.sh");
 define("CONTENT_FILTER_CONF", "/home/router/squid/squid.acl.conf");
 define("CONTENT_FILTER_DIR", "/home/router/squid/");
+define("CONTENT_FILTER_RESTART", "/home/router/squid/restart.sh");
 define("NETWORK_IP", "192.168.10");
 
 ?>
