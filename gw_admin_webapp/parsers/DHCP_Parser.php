@@ -1,5 +1,4 @@
 <?
-
 class DHCP_Parser
 {
 	/**
@@ -18,13 +17,17 @@ class DHCP_Parser
 		return trim(substr($str, $val_ini, $val_end-$val_ini));
 	}
 
+	function get_block_end_tok(){ return '}'; }
+
 	function parse($str)
 	{
 		$tok = $this->get_block_start_tok();
+		$tok_end = $this->get_block_end_tok();
+
 		$pos = strpos($str, $tok);
 		while ($pos !== false)
 		{
-			$max = strpos($str, "}", $pos+1);
+			$max = strpos($str, $tok_end, $pos+1);
 			$this->parse_block($str, $pos, $max);
 			$pos = strpos($str, $tok, $pos+1);
 		}
