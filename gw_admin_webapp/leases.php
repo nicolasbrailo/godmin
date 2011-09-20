@@ -12,7 +12,7 @@ $leases = $lp->parse(file_get_contents(LEASES_FILE));
 
 <h1>List of known DHCP leases</h2>
 <table class="sample" width="900px">
-<tr><td>IP</td><td>Lease start</td><td>MAC</td><td>Hostname</td><td>Make static</td></tr>
+<tr><td>IP</td><td>Lease start</td><td>MAC</td><td>Hostname</td><td>Make static</td><td>DNS Logs</td></tr>
 <? foreach($leases as $lease) { ?>
 	<tr>
 	<td><?= $lease->ip ?></td>
@@ -20,6 +20,7 @@ $leases = $lp->parse(file_get_contents(LEASES_FILE));
 	<td><?= $lease->mac ?></td>
 	<td><?= $lease->hostname ?></td>
 	<td><a href="add_static.php?mac=<?= $lease->mac ?>&host=<?= $lease->hostname ?>">X</a></td>
+	<td><a href="dns_logs.php?filter_ip=<?= $lease->ip ?>">DNS</a></td>
 	</tr>
 <? } ?>
 </table>

@@ -4,7 +4,10 @@ $file = explode('/', $currentpath);
 $currentpage = $file[count($file) - 1];
 ?>
 <ul class="sandbar">
-	<li id="logo"><img src="img/godmin.png" height="33" width="100" border="0" /></li>
+	<li id="logo"><a href="https://code.google.com/p/godmin/">
+		<img src="img/godmin.png" height="33" width="100" border="0" />
+		</a>
+	</li>
 <?php switch ($currentpage) {
     case "leases.php": ?>
 	<li class="active"><a href="leases.php">Known DHCP Leases</a></li>
