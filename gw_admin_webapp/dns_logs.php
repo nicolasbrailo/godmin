@@ -32,7 +32,7 @@ if ($filter_ip == '') $filter_ip = NETWORK_IP;
 <link rel="stylesheet" href="style.css">
 <? include 'menu.php' ?>
 <div id="content">
-<h1>DNS Logs</h2>
+<h1>DNS Logs</h1>
 
 <p>Keep in mind the DNS logs might be huge. If this script doesn't work try increasing PHP's memory limits and timeouts.</p>
 

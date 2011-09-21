@@ -15,7 +15,9 @@ $cf->parse(file_get_contents(CONTENT_FILTER_CONF));
 <link rel="stylesheet" href="style.css">
 
 <? include 'menu.php' ?>
+<div id="content">
 
+<h1>Content Filter</h1>
 <?
 if (isset($_POST["new_filter_name"]))
 {

@@ -17,7 +17,8 @@ $dnsp->parse(file_get_contents(NAMED_FILE));
 
 <? include 'menu.php' ?>
 <div id="content">
-<h1>List of static DHCP hosts</h2>
+
+<h1>List of Static DHCP Hosts</h1>
 <? foreach($hosts as $host) { ?>
 <table class="sample" width="800px">
 <tr><td>IP</td><td>MAC</td><td>Hostname</td></tr>

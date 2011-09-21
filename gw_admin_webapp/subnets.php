@@ -9,7 +9,8 @@ $sp = new Subnets_Parser();
 
 <? include 'menu.php' ?>
 <div id="content">
-<h1>DHCP subnets</h2>
+
+<h1>DHCP Subnets</h1>
 
 <pre>
 <?
