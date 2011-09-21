@@ -42,7 +42,7 @@ if ($filter_ip == '') $filter_ip = NETWORK_IP;
 <tr>
 <td>
 <? if ((stristr($filter_url,"porn"))||(stristr($filter_url,"sex"))){ ?>
-<div id="ceilingcat">Ceiling Cat is watching you masturbate<br/>&nbsp;<br/><img src="img/ceiling_cat.png" width="150" height="82" alt="Ceiling Cat is watching you masturbate" /></div>
+<div id="lol">Ceiling Cat is watching you masturbate<br/>&nbsp;<br/><img src="img/ceiling_cat.png" width="150" height="82" alt="Ceiling Cat is watching you masturbate" /></div>
 <? } ?>
 
 <form>

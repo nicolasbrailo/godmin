@@ -86,23 +86,27 @@ table.sample {
 	border-width: 1px;
 	border-spacing: 0px;
 	border-style: solid;
-	border-color: black;
+	border-color: #006699;
 	border-collapse: collapse;
 	background-color: rgb(250, 240, 230);
 }
 table.sample th {
 	border-width: 1px;
-	padding: 0px;
-	border-style: inset;
-	border-color: gray;
-	background-color: white;
+	padding: 5px 7px;
+	border-style:inset;
+	border-color: #006699;
+	background-color: #7BA400;
+	color: #FFF;
+	font-size:13px;
+	font-weight:bold;
 }
 table.sample td {
 	border-width: 1px;
-	padding: 2px;
+	padding: 5px 7px;
 	border-style: inset;
-	border-color: gray;
-	background-color: white;
+	border-color: #006699;
+	background-color: #ffffff;
+	font-size:12px;
 }
 
 #content {
@@ -121,7 +125,7 @@ table.sample td {
 }
 
 
-#ceilingcat {
+#lol {
 	float: right;
 	width: 150px;
 	padding:15px;

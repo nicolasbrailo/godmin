@@ -12,8 +12,8 @@ $leases = $lp->parse(file_get_contents(LEASES_FILE));
 <div id="content">
 
 <h1>List of known DHCP leases</h1>
-<table class="sample" width="900px">
-<tr><td>IP</td><td>Lease start</td><td>MAC</td><td>Hostname</td><td>Make static</td><td>DNS Logs</td></tr>
+<table class="sample">
+<tr><th>IP</th><th>Lease start</th><th>MAC</th><th>Hostname</th><th>Make static</th><th>DNS Logs</th></tr>
 <? foreach($leases as $lease) { ?>
 	<tr>
 	<td><?= $lease->ip ?></td>

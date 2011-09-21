@@ -18,6 +18,9 @@ $cf->parse(file_get_contents(CONTENT_FILTER_CONF));
 <div id="content">
 
 <h1>Content Filter</h1>
+
+<div id="lol">Legum servi sumus ut liberi esse possimus<br/>&nbsp;<br/><img src="img/thought_police.png" width="150" height="186" alt="Legum servi sumus ut liberi esse possimus" /></div>
+
 <?
 if (isset($_POST["new_filter_name"]))
 {
@@ -82,6 +85,3 @@ Available filters:
 	<input type="hidden" name="filter_name" value="<?= $_REQUEST["filter"] ?>"/>
 	</form>
 <? } ?>
-
-<img src="img/thought_police.jpg"/>
-
