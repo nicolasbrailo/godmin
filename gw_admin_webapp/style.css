@@ -17,6 +17,11 @@ body {
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:13px;
 	}
+	
+a, a:visited, a:hover {
+	color: #006699;
+	}
+
 ul.sandbar {
 	background-color: #003366;
 	font-size:13px;
@@ -96,7 +101,11 @@ table.sample th {
 	border-style:inset;
 	border-color: #006699;
 	background-color: #7BA400;
-	color: #FFF;
+	background:-moz-linear-gradient(0% 100% 90deg,#ffffff, #7BA400);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#7BA400), to(#ffffff));
+	background:-o-linear-gradient(top,rgb(123,164,0),rgb(255,255,255));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#7BA400', endColorstr='#ffffff');/*For IE7-8-9*/ 
+	color: #006699;
 	font-size:13px;
 	font-weight:bold;
 }
