@@ -1,20 +1,22 @@
 #!/bin/bash
 
+source common_functions.sh
+
 PREREQS="bind9 isc-dhcp-server"
 
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 1>&2
-   exit 1
-fi
-
-for pak in $PREREQS; do
-	INS=$(dpkg -l "$pak" 2>&1 | grep "$pak" | egrep -v 'none|No packages found' | wc -l)
-	if (( $INS==0 )); then
-		echo "Package $pak missing. Can't continue."
-		echo "To install it type: sudo apt-get install $pak"
-		exit
-	fi
-done
+# if [[ $EUID -ne 0 ]]; then
+#    echo "This script must be run as root" 1>&2
+#    exit 1
+# fi
+# 
+# for pak in $PREREQS; do
+# 	INS=$(dpkg -l "$pak" 2>&1 | grep "$pak" | egrep -v 'none|No packages found' | wc -l)
+# 	if (( $INS==0 )); then
+# 		echo "Package $pak missing. Can't continue."
+# 		echo "To install it type: sudo apt-get install $pak"
+# 		exit
+# 	fi
+# done
 
 
 function get_user_input()

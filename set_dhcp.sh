@@ -83,26 +83,6 @@ echo "Creating link to leases file from dhcp home dir"
 ln -s /var/lib/dhcp $ROUTER_HOME/dhcp/leases
 
 
-
-# Setup apparmor
-if [ ! -f $DHCPD_APPARMOR_CFG ]; then
-	echo "No apparmor detected; remember to configure it, if you install it later"
-else
-	x=$(cat $DHCPD_APPARMOR_CFG | grep $DHCPD_DIR | wc -l)
-	if (( $x!=0 )); then
-		echo "Apparmor seems already configured for $DHCPD_DIR, won't alter it"
-	else
-		# Find the closing brace for the apparmor cfg
-		ln=$( cat $DHCPD_APPARMOR_CFG | grep -n '}' | tail -n1 | awk -F':' '{print $1}' )
-		# Write everything but the closing brace
-		head -n$(($ln-1)) $DHCPD_APPARMOR_CFG > /tmp/apparmor_cfg
-
-		echo -e "\t$DHCPD_DIR/** rw," >> /tmp/apparmor_cfg 
-		echo -e "\t$DHCPD_DIR/ rw," >> /tmp/apparmor_cfg 
-		echo "}" >> /tmp/apparmor_cfg 
-		mv /tmp/apparmor_cfg $DHCPD_APPARMOR_CFG
-		echo "Apparmor configuration updated for $DHCPD_DIR"
-	fi
-fi
-
+# Update security
+update_apparmor $DHCPD_APPARMOR_CFG $DHCPD_DIR
 
