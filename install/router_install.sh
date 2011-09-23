@@ -45,8 +45,8 @@ get_user_input 'Enter the home directory for the router' '/home/router' router_h
 
 mkdir -p $router_home
 
-echo "Setting up IP forwards and NAT..."
-source set_forwards_nat_routing.sh $wan_iface $lan_iface $lan_ip $router_home
+# echo "Setting up IP forwards and NAT..."
+# source set_forwards_nat_routing.sh $wan_iface $lan_iface $lan_ip $router_home
  
 # echo -e "\n\nSetting up DNS server..."
 # source set_bind.sh $lan_ip $lan_tld $router_home

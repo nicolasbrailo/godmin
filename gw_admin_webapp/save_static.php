@@ -1,7 +1,7 @@
 <?
 include_once 'parsers/DNS_Parser.php';
 include_once 'GetHostFromCfg.php';
-include_once 'RestartRouter.php';
+include_once 'OS.php';
 
 if (!isset($_POST["mac"]))
 {
@@ -118,6 +118,6 @@ file_put_contents(NAMED_FILE, $named_cfg);
 
 
 echo '<a href="/static_hosts.php">Saved. Continue...</a>';
-restart_router();
+OS::restart_all_networking();
 
 ?>

@@ -1,6 +1,6 @@
 <?
 include_once 'GetHostFromCfg.php';
-include_once 'RestartRouter.php';
+include_once 'OS.php';
 
 if (isset($_POST["mac"]))
 {
@@ -36,7 +36,7 @@ if (isset($_POST["mac"]))
 	?>
 	<a href="/static_hosts.php">Saved. Continue...</a>
 	<?
-	restart_router();
+	OS::restart_all_networking();
 	exit;
 }
 

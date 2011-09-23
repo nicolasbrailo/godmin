@@ -1,0 +1,42 @@
+<?
+// Facade to perform OS operations like restarting a service
+
+class OS
+{
+	static function restart_all_networking()
+	{
+		OS::restart_nat_and_fwds();
+		OS::restart_dhcp();
+		OS::restart_dns();
+	}
+
+	static function restart_dns()
+	{
+		echo "<pre>";
+		exec("sudo /bin/bash ".RESTART_DNS);
+		echo "</pre>";
+	}
+
+	static function restart_dhcp()
+	{
+		echo "<pre>";
+		exec("sudo /bin/bash ".RESTART_DHCP);
+		echo "</pre>";
+	}
+
+	static function restart_nat_and_fwds()
+	{
+		echo "<pre>";
+		exec("sudo /bin/bash ".RESTART_NAT_AND_FWDS);
+		echo "</pre>";
+	}
+
+	static function restart_content_filter()
+	{
+		echo "<pre>";
+		exec("sudo /bin/bash ".CONTENT_FILTER_RESTART);
+		echo "</pre>";
+	}
+}
+
+?>

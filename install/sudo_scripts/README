@@ -1,0 +1,4 @@
+The scripts in this directory will be used by the webapp to perform root actions, like restarting the DHCP or configuring an iptables rule. To make the webapp work every script here must be configured to be run with sudo without a password, for Apache's user (i.e. so the webapp can issue a 'sudo SCRIPT' without being asked for a password).
+
+Be aware that having passwordless sudo scripts might be a security issue.
+
