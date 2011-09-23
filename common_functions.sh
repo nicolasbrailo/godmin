@@ -23,7 +23,7 @@ function write_cfg_from_template()
 	# cat TEMPLATE_FILE | \
 	#					sed "s/\$PATTERN1/VALUE1/g" | \
 	#					... > DEST_FILE
-	eval "cat $template_file $sed_chain > $dest_file"
+	eval "cat $template_file $sed_chain >> $dest_file"
 }
 
 
