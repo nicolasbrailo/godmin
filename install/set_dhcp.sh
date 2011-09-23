@@ -9,7 +9,7 @@ WAN_ROUTER_IP=$4
 LAN_SUBNET_TMPL=default_cfg/isc-dhcp/lan_subnet.cfg 
 WAN_SUBNET_TMPL=default_cfg/isc-dhcp/wan_subnet.cfg 
 DHCP_CFG_TMPL=default_cfg/isc-dhcp/dhcpd.conf 
-TMPL_VARS="LAN_TLD LAN_IP WAN_ROUTER_IP2 SUBNETS_CFG HOSTS_CFG WAN_NET_IP NET_IP LAN_IP"
+TMPL_VARS="LAN_TLD LAN_IP WAN_ROUTER_IP SUBNETS_CFG HOSTS_CFG WAN_NET_IP NET_IP"
 
 # dhcp config dirs
 DHCPD_CFG=/etc/dhcp/dhcpd.conf
@@ -54,17 +54,16 @@ else
 		echo "It seems DHCPD is already configured, won't write to $DHCPD_CFG"
 	else
 		mv $DHCPD_CFG "$DHCPD_CFG.bck"
-		write_cfg_from_template $DHCP_CFG_TMPL $DHCPD_CFG $TMPL_VARS
+		write_cfg_from_template $DHCP_CFG_TMPL $DHCPD_CFG "$TMPL_VARS"
 		echo "Configured DHCP to read network setup from $ROUTER_HOME/dhcp"
 	fi
 fi
 
-
 # Write subnets config to dhcpd.conf
 if [ "$WAN_ROUTER_IP" != "" ]; then
-	write_cfg_from_template $WAN_SUBNET_TMPL $SUBNETS_CFG $TMPL_VARS
+	write_cfg_from_template $WAN_SUBNET_TMPL $SUBNETS_CFG "$TMPL_VARS"
 fi
 
-write_cfg_from_template $LAN_SUBNET_TMPL $SUBNETS_CFG $TMPL_VARS
+write_cfg_from_template $LAN_SUBNET_TMPL $SUBNETS_CFG "$TMPL_VARS"
 echo "Wrote subnets configuration to $SUBNETS_CFG"
 

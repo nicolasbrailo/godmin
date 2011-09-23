@@ -1,3 +1,10 @@
+function warning()
+{
+	tput sgr0
+	echo -ne '\E[33;40mWarning: '
+	echo -e $1
+	tput sgr0
+}
 
 function write_cfg_from_template()
 {

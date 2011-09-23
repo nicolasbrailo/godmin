@@ -9,8 +9,10 @@ BIND_APPARMOR_CFG=/etc/apparmor.d/usr.sbin.named
 
 # Template files
 ZONE_TEMPLATE=default_cfg/bind9/zone.cfg 
+LOG_TEMPLATE=default_cfg/bind9/logging.cfg 
 DB_TEMPLATE=default_cfg/bind9/zone_db.cfg 
 DB_REV_TEMPLATE=default_cfg/bind9/zone_rev_db.cfg 
+TMPL_VARS="LAN_TLD BIND_TLD_REV_FILE BIND_TLD_REV BIND_LOGS BIND_TLD"
 
 # Get the name for the rev db. No idea why it's so complicated
 rev_ip1="$(echo $LAN_IP|awk -F'.' '{print $1}')"
@@ -24,8 +26,6 @@ BIND_LOGS=$BIND_DIR"/dns.log"
 BIND_TLD=$BIND_DIR"/"$LAN_TLD".db"
 BIND_TLD_REV="rev.$rev_ip.in-addr.arpa"
 BIND_TLD_REV_FILE="$BIND_DIR/$BIND_TLD_REV"
-
-TMPL_VARS="LAN_TLD BIND_TLD_REV_FILE BIND_TLD_REV BIND_LOGS BIND_TLD"
 
 
 if [ ! -e $BIND_CFG ]; then
@@ -48,6 +48,16 @@ if (($x!=0)); then
 else
 	write_cfg_from_template $ZONE_TEMPLATE $BIND_CFG "$TMPL_VARS"
 	echo "Updated bind local zones file for $LAN_TLD"
+fi
+
+# TODO: This will fail if log is setup like logging\n{
+x=$(cat $BIND_CFG | grep "logging.{" | wc -l)
+if (($x!=0)); then
+	echo "bind has already been configured for logging, won't reconfigure."
+	echo -e "\tThe webapp may not have DNS logs available with this setup."
+else
+	write_cfg_from_template $LOG_TEMPLATE $BIND_CFG "$TMPL_VARS"
+	echo "Bind will now log to $BIND_LOGS"
 fi
 
 
