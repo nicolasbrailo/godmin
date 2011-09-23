@@ -13,7 +13,7 @@ $dnsp = new DNS_Parser();
 $dnsp->parse(file_get_contents(NAMED_FILE));
 
 
-include 'design/header.php';
+include 'layout/header.php';
 ?>
 
 <h1>List of Static DHCP Hosts</h1>
@@ -61,4 +61,4 @@ include 'design/header.php';
 <br>
 <? } ?>
 
-<? include 'design/footer.php' ?>
+<? include 'layout/footer.php' ?>

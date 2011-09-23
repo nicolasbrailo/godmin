@@ -5,7 +5,7 @@ include_once 'config.php';
 $hr = new GetHostFromCfg();
 $host = $hr->read_host_from_cfg($_REQUEST["mac"]);
 
-include 'design/header.php';
+include 'layout/header.php';
 ?>
 
 <h2>Add new static DHCP host</h2>
@@ -105,4 +105,4 @@ foreach($sp->hosts as $lease) { ?>
 <? } ?>
 </table>
 
-<? include 'design/footer.php' ?>
+<? include 'layout/footer.php' ?>

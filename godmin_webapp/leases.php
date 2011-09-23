@@ -5,7 +5,7 @@ include_once 'config.php';
 $lp = new Lease_Parser();
 $leases = $lp->parse(file_get_contents(LEASES_FILE));
 
-include 'design/header.php';
+include 'layout/header.php';
 ?>
 
 <h1>List of Known DHCP Leases</h1>
@@ -23,4 +23,4 @@ include 'design/header.php';
 <? } ?>
 </table>
 
-<? include 'design/footer.php' ?>
+<? include 'layout/footer.php' ?>

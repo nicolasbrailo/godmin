@@ -6,7 +6,7 @@ include_once 'parsers/Content_Filter_Parser.php';
 $cf = new Content_Filter_Parser();
 $cf->parse(file_get_contents(CONTENT_FILTER_CONF));
 
-include 'design/header.php';
+include 'layout/header.php';
 ?>
 
 <h1>Content Filter</h1>
@@ -78,4 +78,4 @@ Available filters:
 	</form>
 <? } ?>
 
-<? include 'design/footer.php' ?>
+<? include 'layout/footer.php' ?>

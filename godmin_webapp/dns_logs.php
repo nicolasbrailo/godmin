@@ -29,7 +29,7 @@ if ($unique === true) $cmd .= ' | uniq';
 if ($filter_ip == '') $filter_ip = NETWORK_IP;
 
 
-include 'design/header.php';
+include 'layout/header.php';
 ?>
 
 <h1>DNS Logs</h1>
@@ -75,4 +75,4 @@ Filter URLs by
 }
 ?>
 
-<? include 'design/footer.php' ?>
+<? include 'layout/footer.php' ?>

@@ -4,7 +4,7 @@ include_once 'parsers/Subnets_Parser.php';
 
 $sp = new Subnets_Parser();
 
-include 'design/header.php';
+include 'layout/header.php';
 ?>
 
 <h1>DHCP Subnets</h1>
@@ -15,4 +15,4 @@ $sp->parse(file_get_contents(SUBNETS_FILE));
 ?>
 </pre>
 
-<? include 'design/footer.php' ?>
+<? include 'layout/footer.php' ?>
