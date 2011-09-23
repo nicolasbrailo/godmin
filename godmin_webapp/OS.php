@@ -37,6 +37,14 @@ class OS
 		exec("sudo /bin/bash ".CONTENT_FILTER_RESTART);
 		echo "</pre>";
 	}
+	
+	static function generate_proxy_report()
+	{
+		echo "<pre>";
+		exec("sudo /bin/bash ".GENERATE_PROXY_REPORT);
+		echo "</pre>";
+	}
+
 }
 
 ?>

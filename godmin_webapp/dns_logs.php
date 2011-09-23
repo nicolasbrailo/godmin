@@ -22,7 +22,7 @@ if ($filter_url != '')
 $run_cmd = true;
 if ($filter_ip == '' and $filter_url == '') $run_cmd = false;
 
-// Keep in mind this might be a hugh file. No point in using php for this.
+// Keep in mind this might be a huge file. No point in using php for this.
 $cmd = "egrep \"$filter\" ".NAMED_LOG." | sort";
 if ($unique === true) $cmd .= ' | uniq';
 
@@ -33,7 +33,16 @@ include 'layout/header.php';
 ?>
 
 <h1>DNS Logs</h1>
-<p>Keep in mind the DNS logs might be huge. If this script doesn't work try increasing PHP's memory limits and timeouts.</p>
+<p>Keep in mind:
+<ul>
+<!-- Thanks Ricardo! -->
+<li>* The DNS logs might be huge. If this script doesn't work try increasing PHP's memory limits and timeouts.</li>
+<li>* If you are using a transparent content filter (aka Proxy) most of your request will be from the proxy and not the clients. In this case, you will only see those request that didn't go through the proxy, which should be the local queries and clients using https.</li>
+</ul>
+</p>
+
+<hr/>
+
 
 <table width="100%">
 <tr>

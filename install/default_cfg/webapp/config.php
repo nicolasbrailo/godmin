@@ -25,11 +25,13 @@ define("NAMED_LOG",		"$ROUTER_HOME/named/dns.log");
 # Proxy config
 define("CONTENT_FILTER_CONF",		"$ROUTER_HOME/proxy/squid.acl.conf");
 define("CONTENT_FILTER_DIR",		"$ROUTER_HOME/proxy/");
+define("PROXY_REPORT_DIR",			"proxy_logs");
 
 # OS sudo commands
 define("RESTART_DNS",				"$ROUTER_HOME/sudo_scripts/restart_dns.sh");
 define("RESTART_DHCP",				"$ROUTER_HOME/sudo_scripts/restart_dhcp.sh");
 define("RESTART_NAT_AND_FWDS",	"$ROUTER_HOME/sudo_scripts/restart_nat_and_fwds.sh");
 define("RESTART_CONTENT_FILTER",	"$ROUTER_HOME/sudo_scripts/restart_squid.sh");
+define("GENERATE_PROXY_REPORT",	"$ROUTER_HOME/sudo_scripts/generate_proxy_report.sh");
 
 ?>

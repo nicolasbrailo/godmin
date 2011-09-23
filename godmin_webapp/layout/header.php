@@ -7,7 +7,7 @@ $currentpage = str_replace('.php', '', $file[count($file) - 1]);
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Godmin &#8250; <?= ucwords($currentpage) ?></title>
+<title>Godmin &#8250; <?= ucwords(str_replace('_', ' ', $currentpage)) ?></title>
 <link rel="stylesheet" href="theme/style.css">
 </head>
 
@@ -40,6 +40,10 @@ $currentpage = str_replace('.php', '', $file[count($file) - 1]);
 
         <li<? if ($currentpage=="dns_logs"){ ?> class="active"<? } ?>>
                 <a href="dns_logs.php">DNS Logs</a>
+        </li>
+
+        <li<? if ($currentpage=="proxy_logs"){ ?> class="active"<? } ?>>
+                <a href="proxy_logs.php">Proxy Logs</a>
         </li>
 
         <li<? if ($currentpage=="content_filter"){ ?> class="active"<? } ?>>

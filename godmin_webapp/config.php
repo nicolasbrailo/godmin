@@ -24,11 +24,14 @@ define("NAMED_LOG",		"/home/router/named/dns.log");
 # Proxy config
 define("CONTENT_FILTER_CONF",		"/home/router/squid/squid.acl.conf");
 define("CONTENT_FILTER_DIR",		"/home/router/squid/");
+define("PROXY_REPORT_DIR",			"proxy_logs");
 
 # OS sudo commands
 define("RESTART_DNS",				"/home/router/sudo_scripts/restart_dns.sh");
 define("RESTART_DHCP",				"/home/router/sudo_scripts/restart_dhcp.sh");
 define("RESTART_NAT_AND_FWDS",	"/home/router/sudo_scripts/restart_nat_and_fwds.sh");
 define("RESTART_CONTENT_FILTER",	"/home/router/sudo_scripts/restart_squid.sh");
+define("GENERATE_PROXY_REPORT",	"/home/router/sudo_scripts/generate_proxy_report.sh");
+
 
 ?>
