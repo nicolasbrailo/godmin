@@ -1,11 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Godmin &#8250; Content Filter</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
 <?
 include_once 'config.php';
 include_once 'OS.php';
@@ -13,15 +5,12 @@ include_once 'parsers/Content_Filter_Parser.php';
 
 $cf = new Content_Filter_Parser();
 $cf->parse(file_get_contents(CONTENT_FILTER_CONF));
+
+include 'design/header.php';
 ?>
 
-<body>
-<? include 'menu.php' ?>
-<div id="content">
-
 <h1>Content Filter</h1>
-
-<div id="lol">Legum servi sumus ut liberi esse possimus<br/>&nbsp;<br/><img src="img/thought_police.png" width="150" height="186" alt="Legum servi sumus ut liberi esse possimus" /></div>
+<div id="lol">Legum servi sumus ut liberi esse possimus<br/>&nbsp;<br/><img src="theme/thought_police.png" width="150" height="186" alt="Legum servi sumus ut liberi esse possimus" /></div>
 
 <?
 if (isset($_POST["new_filter_name"]))
@@ -88,5 +77,5 @@ Available filters:
 	<input type="hidden" name="filter_name" value="<?= $_REQUEST["filter"] ?>"/>
 	</form>
 <? } ?>
-</body>
-</html>
+
+<? include 'design/footer.php' ?>

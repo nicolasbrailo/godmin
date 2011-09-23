@@ -1,10 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Godmin &#8250; DNS Logs</title>
-<link rel="stylesheet" href="style.css">
-</head>
 <?
 include "config.php";
 
@@ -34,22 +27,19 @@ $cmd = "egrep \"$filter\" ".NAMED_LOG." | sort";
 if ($unique === true) $cmd .= ' | uniq';
 
 if ($filter_ip == '') $filter_ip = NETWORK_IP;
+
+
+include 'design/header.php';
 ?>
 
-<body>
-<? include 'menu.php' ?>
-<div id="content">
 <h1>DNS Logs</h1>
-
 <p>Keep in mind the DNS logs might be huge. If this script doesn't work try increasing PHP's memory limits and timeouts.</p>
-
-
 
 <table width="100%">
 <tr>
 <td>
 <? if ((stristr($filter_url,"porn"))||(stristr($filter_url,"sex"))){ ?>
-<div id="lol">Ceiling Cat is watching you masturbate<br/>&nbsp;<br/><img src="img/ceiling_cat.png" width="150" height="82" alt="Ceiling Cat is watching you masturbate" /></div>
+<div id="lol">Ceiling Cat is watching you masturbate<br/>&nbsp;<br/><img src="theme/ceiling_cat.png" width="150" height="82" alt="Ceiling Cat is watching you masturbate" /></div>
 <? } ?>
 
 <form>
@@ -84,6 +74,5 @@ Filter URLs by
 	echo 'Please enter a filter';
 }
 ?>
-</div>
-</body>
-</html>
+
+<? include 'design/footer.php' ?>

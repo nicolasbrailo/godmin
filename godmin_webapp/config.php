@@ -14,7 +14,7 @@ define("STATIC_HOSTS_FILE",	"/home/router/dhcp/static_hosts.conf");
 define("SUBNETS_FILE",			"/home/router/dhcp/subnets.conf");
 
 # Net config
-define("FORWARDINGS_FILE",		"/home/router/set_forwards.sh");
+define("FORWARDINGS_FILE",		"/home/router/net/set_forwards.sh");
 define("NETWORK_IP",				"192.168.10");
 
 # DNS config

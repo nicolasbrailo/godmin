@@ -1,11 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Godmin &#8250; List of Static DHCP Hosts</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
 <?
 include_once 'parsers/Static_Hosts_Parser.php';
 include_once 'parsers/Forwardings_Parser.php';
@@ -19,11 +11,10 @@ $forwardings = new Forwardings_Parser(file_get_contents(FORWARDINGS_FILE));
 
 $dnsp = new DNS_Parser();
 $dnsp->parse(file_get_contents(NAMED_FILE));
-?>
 
-<body>
-<? include 'menu.php' ?>
-<div id="content">
+
+include 'design/header.php';
+?>
 
 <h1>List of Static DHCP Hosts</h1>
 <? foreach($hosts as $host) { ?>
@@ -70,6 +61,4 @@ $dnsp->parse(file_get_contents(NAMED_FILE));
 <br>
 <? } ?>
 
-</div>
-</body>
-</html>
+<? include 'design/footer.php' ?>

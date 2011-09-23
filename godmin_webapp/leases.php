@@ -1,22 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Godmin &#8250; List of Known DHCP Leases</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
 <?
 include_once 'parsers/Lease_Parser.php';
 include_once 'config.php';
 
 $lp = new Lease_Parser();
 $leases = $lp->parse(file_get_contents(LEASES_FILE));
-?>
 
-<body>
-<? include 'menu.php' ?>
-<div id="content">
+include 'design/header.php';
+?>
 
 <h1>List of Known DHCP Leases</h1>
 <table class="sample">
@@ -33,6 +23,4 @@ $leases = $lp->parse(file_get_contents(LEASES_FILE));
 <? } ?>
 </table>
 
-</div>
-</body>
-</html>
+<? include 'design/footer.php' ?>
