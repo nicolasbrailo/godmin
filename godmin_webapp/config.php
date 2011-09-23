@@ -24,7 +24,7 @@ define("NAMED_LOG",		"/home/router/named/dns.log");
 # Proxy config
 define("CONTENT_FILTER_CONF",		"/home/router/squid/squid.acl.conf");
 define("CONTENT_FILTER_DIR",		"/home/router/squid/");
-define("PROXY_REPORT_DIR",			"proxy_logs");
+define("PROXY_REPORT_DIR",			"proxy_reports");
 
 # OS sudo commands
 define("RESTART_DNS",				"/home/router/sudo_scripts/restart_dns.sh");
