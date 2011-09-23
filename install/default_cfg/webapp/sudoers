@@ -1,0 +1,1 @@
+$WEBAPP_USER    ALL=(ALL) NOPASSWD: /bin/bash $SCRIPT
