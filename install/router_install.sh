@@ -45,15 +45,15 @@ get_user_input 'Enter the home directory for the router' '/home/router' router_h
 
 mkdir -p $router_home
 
-# echo "Setting up IP forwards and NAT..."
-# source set_forwards_nat_routing.sh $wan_iface $lan_iface $lan_ip $router_home
- 
-# echo -e "\nSetting up DNS server..."
-# source set_bind.sh $lan_ip $lan_tld $router_home
+echo "Setting up IP forwards and NAT..."
+source set_forwards_nat_routing.sh $wan_iface $lan_iface $lan_ip $router_home
 
-# echo -e "\nSetting up DHCP server..."
-# source set_dhcp.sh $lan_ip $lan_tld $router_home $wan_router_ip 
+echo -e "\nSetting up DNS server..."
+source set_bind.sh $lan_ip $lan_tld $router_home
+
+echo -e "\nSetting up DHCP server..."
+source set_dhcp.sh $lan_ip $lan_tld $router_home $wan_router_ip 
 
 echo -e "\nInstalling the webapp..."
-source set_webapp.sh $router_home
+source set_webapp.sh $router_home $lan_ip
 

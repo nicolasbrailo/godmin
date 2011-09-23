@@ -16,7 +16,7 @@ define("SUBNETS_FILE",			"$ROUTER_HOME/dhcp/subnets.conf");
 
 # Net config
 define("FORWARDINGS_FILE",		"$ROUTER_HOME/net/set_forwards.sh");
-define("NETWORK_IP",				"192.168.10");
+define("NETWORK_IP",				"$LAN_IP_PREFIX");
 
 # DNS config
 define("NAMED_FILE",		"$ROUTER_HOME/named/boc.db");
