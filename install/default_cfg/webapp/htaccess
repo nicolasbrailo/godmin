@@ -1,0 +1,4 @@
+AuthName "GTFO"
+AuthType Basic
+AuthUserFile $ROUTER_HOME/htpasswd
+require valid-user
