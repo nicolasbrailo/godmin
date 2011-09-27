@@ -30,12 +30,12 @@ $currentpage = str_replace('.php', '', $file[count($file) - 1]);
                 <a href="leases.php">Known DHCP Leases</a>
         </li>
 
-        <li<? if ($currentpage=="subnets"){ ?> class="active"<? } ?>>
-                <a href="subnets.php">Configure DHCP Subnets</a>
-        </li>
-
         <li<? if ($currentpage=="static_hosts"){ ?> class="active"<? } ?>>
                 <a href="static_hosts.php">Static Hosts</a>
+        </li>
+
+        <li<? if ($currentpage=="subnets"){ ?> class="active"<? } ?>>
+                <a href="subnets.php">Configure DHCP Subnets</a>
         </li>
 
         <li<? if ($currentpage=="dns_logs"){ ?> class="active"<? } ?>>
@@ -48,6 +48,10 @@ $currentpage = str_replace('.php', '', $file[count($file) - 1]);
 
         <li<? if ($currentpage=="content_filter"){ ?> class="active"<? } ?>>
                 <a href="content_filter.php">Content Filter</a>
+        </li>
+
+        <li<? if ($currentpage=="system_logs"){ ?> class="active"<? } ?>>
+                <a href="system_logs.php">System Logs</a>
         </li>
 </ul>
 
