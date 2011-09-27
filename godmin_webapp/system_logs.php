@@ -15,9 +15,8 @@ include 'layout/header.php';
 
 <h1>DHCP Logs</h1>
 <textarea class="smallbox">
-<? system(CMD_DHCP_LOG) ?>
+<? system("sudo /bin/bash ".CMD_GET_DHCP_LOG) ?>
 </textarea>
 
 
 <? include 'layout/footer.php' ?>
-
