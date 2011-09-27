@@ -8,10 +8,15 @@
 # 		../install/default_cfg/webapp/config.php
 # Not reflecting the changes there will break any installation of the webapp.
 
+# General config
+define("ROUTER_LOG",            "/home/router/router.log");
+
+
 # DHCPd config
 define("LEASES_FILE",			"/home/router/dhcp/leases/dhcpd.leases");
 define("STATIC_HOSTS_FILE",	"/home/router/dhcp/static_hosts.conf");
 define("SUBNETS_FILE",			"/home/router/dhcp/subnets.conf");
+
 
 # Net config
 define("FORWARDINGS_FILE",		"/home/router/net/set_forwards.sh");
@@ -32,6 +37,7 @@ define("RESTART_DHCP",				"/home/router/sudo_scripts/restart_dhcp.sh");
 define("RESTART_NAT_AND_FWDS",	"/home/router/sudo_scripts/restart_nat_and_fwds.sh");
 define("RESTART_CONTENT_FILTER",	"/home/router/sudo_scripts/restart_squid.sh");
 define("GENERATE_PROXY_REPORT",	"/home/router/sudo_scripts/generate_proxy_report.sh");
+define("CMD_GET_DHCP_LOG",      "/home/router/sudo_scripts/get_dhcp_logs.sh");
 
 
 ?>

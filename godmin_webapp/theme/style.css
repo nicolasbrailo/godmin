@@ -86,6 +86,12 @@ ul.sandbar li:hover a{
 	color:#006699;
 }
 
+textarea.smallbox {
+        color: #006699;
+        width: 600px; 
+        height: 200px;
+}
+
 
 table.sample {
 	border-width: 1px;
