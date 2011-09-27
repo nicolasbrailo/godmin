@@ -4,8 +4,7 @@ include_once 'parsers/Subnets_Parser.php';
 
 if (isset($_POST["subnets_cfg"]))
 {
-	echo "TODO";
-	echo $_POST["subnets_cfg"];
+	file_put_contents(SUBNETS_FILE, $_POST["subnets_cfg"]);
 }
 
 include 'layout/header.php';
@@ -22,9 +21,9 @@ $sp->parse(file_get_contents(SUBNETS_FILE));
 
 <br/><hr/><br>
 
-<h2>Caution: Godmin provides no syntax checking for DHCP subnets definition.
+<p class="alert">Caution: Godmin provides no syntax checking for DHCP subnets definition.
 Whatever you write here will be written to the dhcp.conf file. Only change
-this if you are really sure that's what you want</h2>
+this if you are really sure that's what you want</p>
 
 <br/>
 

@@ -18,7 +18,7 @@ include 'layout/header.php';
 <div id="lol"><img src="theme/thought_police.png" height="80" alt="Legum servi sumus ut liberi esse possimus" /></div>
 
 <form method="post">
-<b>Beware, generating proxy reports implies processing a couple hundred megabytes, and it's a lengthy process... you should do this only if you have a low network load (and don't even think of doing this unless you have a multi core box for Godmin, otherwise your whole network will grind to a halt).</b><br/><br/>
+<p class="alert">Beware, generating proxy reports implies processing a couple hundred megabytes, and it's a lengthy process... you should do this only if you have a low network load (and don't even think of doing this unless you have a multi core box for Godmin, otherwise your whole network will grind to a halt).</p><br/><br/>
 <input type="submit" name="refresh" value="Refresh proxy reports"/>
 </form>
 

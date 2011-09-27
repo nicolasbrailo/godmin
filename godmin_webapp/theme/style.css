@@ -92,6 +92,12 @@ textarea.smallbox {
         height: 200px;
 }
 
+p.alert {
+        color: #FF0000;
+        font-weight: bold;
+}
+
+
 
 table.sample {
 	border-width: 1px;
