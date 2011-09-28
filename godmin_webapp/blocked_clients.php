@@ -1,5 +1,6 @@
 <?
 include_once 'config.php';
+include_once 'OS.php';
 include_once 'parsers/Blocked_Clients_Parser.php';
 
 $bcp = new Blocked_Clients_Parser();
@@ -9,12 +10,14 @@ if (isset($_POST["ip"]))
 {
 	$bcp->block_client($_POST["ip"]);
 	$bcp->write_config(BLOCKED_CLIENTS_FILE);
+	OS::restart_nat_and_fwds();
 }
 
 if (isset($_REQUEST["unblock"]))
 {
 	$bcp->unblock_client($_REQUEST["unblock"]);
 	$bcp->write_config(BLOCKED_CLIENTS_FILE);
+	OS::restart_nat_and_fwds();
 }
 
 include 'layout/header.php';
