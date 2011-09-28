@@ -50,8 +50,8 @@ $currentpage = str_replace('.php', '', $file[count($file) - 1]);
                 <a href="content_filter.php">Content Filter</a>
         </li>
 
-        <li<? if ($currentpage=="system_logs"){ ?> class="active"<? } ?>>
-                <a href="system_logs.php">System Logs</a>
+        <li<? if ($currentpage=="system_status"){ ?> class="active"<? } ?>>
+                <a href="system_status.php">System Status</a>
         </li>
 </ul>
 

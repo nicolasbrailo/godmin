@@ -3,6 +3,12 @@
 
 class OS
 {
+	static function is_service_running($svc_bin_name)
+	{
+			  $st = exec("ps -fea|grep $svc_bin_name |grep -v grep|wc -l");
+			  return $st == 1;
+	}
+
 	static function restart_all_networking()
 	{
 		OS::restart_nat_and_fwds();

@@ -11,6 +11,10 @@
 # General config
 define("ROUTER_LOG",            "/home/router/router.log");
 
+$services_bin_name = array();
+$services_bin_name['DHCP'] = 'dhcpd';
+$services_bin_name['DNS'] = 'named';
+
 
 # DHCPd config
 define("LEASES_FILE",			"/home/router/dhcp/leases/dhcpd.leases");
