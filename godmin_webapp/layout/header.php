@@ -58,7 +58,6 @@ $currentpage = str_replace('.php', '', $file[count($file) - 1]);
 <div id="content">
 
 <?
-$services_bin_name ['inexistent test service'] = 'nobin';
 include 'helpers/check_services_up.php';
 ?>
 

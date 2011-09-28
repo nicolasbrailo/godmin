@@ -10,7 +10,7 @@ include 'layout/header.php';
 
 <h1>List of Known DHCP Leases</h1>
 <table class="sample">
-<tr><th>IP</th><th>Lease start</th><th>MAC</th><th>Hostname</th><th>Make static</th><th>DNS Logs</th></tr>
+<tr><th>IP</th><th>Lease start</th><th>MAC</th><th>Hostname</th><th>Make static</th><th>DNS Logs</th><th>Block client</th></tr>
 <? foreach($leases as $lease) { ?>
 	<tr>
 	<td><?= $lease->ip ?></td>
@@ -19,6 +19,7 @@ include 'layout/header.php';
 	<td><?= $lease->hostname ?></td>
 	<td><a href="add_static.php?mac=<?= $lease->mac ?>&host=<?= $lease->hostname ?>">X</a></td>
 	<td><a href="dns_logs.php?filter_ip=<?= $lease->ip ?>">DNS</a></td>
+	<td><a href="block_client.php?ip=<?= $lease->ip ?>">Block</a></td>
 	</tr>
 <? } ?>
 </table>

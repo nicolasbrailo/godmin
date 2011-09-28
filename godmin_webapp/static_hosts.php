@@ -55,8 +55,9 @@ include 'layout/header.php';
 
 	<tr><td colspan="3">
 		<a href="add_static.php?mac=<?= $host->mac ?>">Edit</a> |  
-		<a href="del_static.php?mac=<?= $host->mac ?>">Delete</a>
-	</tr>
+		<a href="del_static.php?mac=<?= $host->mac ?>">Delete</a> | 
+		<a href="block_client.php?ip=<?= $host->ip ?>">Block client</a>
+	</td></tr>
 </table>
 <br>
 <? } ?>

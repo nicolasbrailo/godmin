@@ -1,5 +1,6 @@
 <?
 include_once 'OS.php';
+include_once 'config.php';
 
 foreach ($services_bin_name as $svc=>$bin) {
         if (! OS::is_service_running($bin))
