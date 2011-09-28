@@ -19,6 +19,7 @@ RC_D_HOOK=/etc/init.d/godmin_router
 # Script cfg
 START_FWDS_SCRIPT_FILE=$ROUTER_HOME"/net/allow_forwardings.sh"
 FWDS_SCRIPT_FILE=$ROUTER_HOME"/net/set_forwards.sh"
+BLOCKS_SCRIPT_FILE=$ROUTER_HOME"/net/blocked_clients.sh"
 RESTART_SCRIPT=$ROUTER_HOME"/net/restart.sh"
 ROUTER_LOG=$ROUTER_HOME"/router.log"
 
@@ -29,7 +30,7 @@ START_FWDS_TMPL=default_cfg/net/start_forwards.sh
 RESTART_TMPL=default_cfg/net/restart.sh
 IF_UP_HOOK_TMPL=default_cfg/net/ifup_router_restart.sh
 RC_D_HOOK_TMPL=default_cfg/net/rc.d_restart.sh
-TMPL_VARS="WAN_IFACE LAN_IFACE LAN_IP PROC_IP_FWD_CFG START_FWDS_SCRIPT_FILE FWDS_SCRIPT_FILE RESTART_SCRIPT ROUTER_LOG"
+TMPL_VARS="WAN_IFACE LAN_IFACE LAN_IP PROC_IP_FWD_CFG START_FWDS_SCRIPT_FILE FWDS_SCRIPT_FILE BLOCKS_SCRIPT_FILE RESTART_SCRIPT ROUTER_LOG"
 
 
 
@@ -39,6 +40,10 @@ mkdir -p "$ROUTER_HOME/net"
 if [ ! -e $FWDS_SCRIPT_FILE ]; then
 	touch $FWDS_SCRIPT_FILE
 fi
+if [ ! -e $BLOCKS_SCRIPT_FILE ]; then
+	touch $BLOCKS_SCRIPT_FILE
+fi
+
 
 # Write FWDS startup script
 if [ ! -e $START_FWDS_SCRIPT_FILE ]; then
@@ -62,7 +67,7 @@ if [ ! -e $RC_D_HOOK ]; then
 	echo "Wrote hook in system restart script $RC_D_HOOK to $RESTART_SCRIPT"
 fi
 
-chmod +x $FWDS_SCRIPT_FILE $START_FWDS_SCRIPT_FILE $RESTART_SCRIPT $IF_UP_HOOK $RC_D_HOOK
+chmod +x $BLOCKS_SCRIPT_FILE $FWDS_SCRIPT_FILE $START_FWDS_SCRIPT_FILE $RESTART_SCRIPT $IF_UP_HOOK $RC_D_HOOK
 
 
 # If the interface is not already configured, add it to $IFACES_CFG

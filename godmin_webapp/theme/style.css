@@ -97,6 +97,14 @@ p.alert {
         font-weight: bold;
 }
 
+p.alert_box {
+        border: 1px solid red;
+        margin: 10px;
+        padding: 3px;
+        text-align: justify;
+        width: 80%;
+}
+
 
 
 table.sample {

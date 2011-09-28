@@ -10,6 +10,7 @@
 
 # General config
 define("ROUTER_LOG",            "/home/router/router.log");
+define("CAPTIVE_PORTAL_ADDR",   "192.168.10.1:80");
 
 $services_bin_name = array();
 $services_bin_name['DHCP'] = 'dhcpd';
@@ -24,6 +25,7 @@ define("SUBNETS_FILE",			"/home/router/dhcp/subnets.conf");
 
 # Net config
 define("FORWARDINGS_FILE",		"/home/router/net/set_forwards.sh");
+define("BLOCKED_CLIENTS_FILE","/home/router/net/blocked_clients.sh");
 define("NETWORK_IP",				"192.168.10");
 
 # DNS config

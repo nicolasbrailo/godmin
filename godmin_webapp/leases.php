@@ -19,7 +19,7 @@ include 'layout/header.php';
 	<td><?= $lease->hostname ?></td>
 	<td><a href="add_static.php?mac=<?= $lease->mac ?>&host=<?= $lease->hostname ?>">X</a></td>
 	<td><a href="dns_logs.php?filter_ip=<?= $lease->ip ?>">DNS</a></td>
-	<td><a href="block_client.php?ip=<?= $lease->ip ?>">Block</a></td>
+	<td><a href="blocked_clients.php?block_ip=<?= $lease->ip ?>">Block</a></td>
 	</tr>
 <? } ?>
 </table>

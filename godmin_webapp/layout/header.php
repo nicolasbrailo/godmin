@@ -34,6 +34,10 @@ $currentpage = str_replace('.php', '', $file[count($file) - 1]);
                 <a href="static_hosts.php">Static Hosts</a>
         </li>
 
+        <li<? if ($currentpage=="blocked_clients"){ ?> class="active"<? } ?>>
+                <a href="blocked_clients.php">Blocked Clients</a>
+        </li>
+
         <li<? if ($currentpage=="subnets"){ ?> class="active"<? } ?>>
                 <a href="subnets.php">Configure DHCP Subnets</a>
         </li>
