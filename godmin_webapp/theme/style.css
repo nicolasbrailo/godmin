@@ -146,6 +146,26 @@ table.sample td {
 }
 
 
+#fatal_error_message {
+        background: #069;
+        position: absolute;
+        width: 800px;
+        height: 550px;
+        font-weight: bold;
+        padding: 20px;
+}
+#fatal_error_message h1 {
+        color: #696;
+        line-height: 60px;
+        font-size: 30px;
+        text-align: center;
+}
+#fatal_error_message li {
+        list-style-type: circle;
+        margin: 20px;
+}
+
+
 #lol {
 	float: right;
 	width: 150px;
