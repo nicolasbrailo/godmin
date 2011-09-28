@@ -1,5 +1,5 @@
 <?
-include_once 'GetHostFromCfg.php';
+include_once 'helpers/GetHostFromCfg.php';
 include_once 'config.php';
 
 $hr = new GetHostFromCfg();

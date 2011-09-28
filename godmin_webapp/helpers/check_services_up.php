@@ -22,12 +22,7 @@ foreach ($services_bin_name as $svc=>$bin) {
 
 	<hr/>
 
-	<? include_once 'print_services_status.php' ?>
-	<ul>
-	<? foreach ($services_bin_name as $svc=>$bin) { ?>
-		<li><? echo_server_status($svc, $bin) ?></li>
-	<? } ?>
-	</ul>
+	<? include 'helpers/print_services_status.php' ?>
 
 	<div style="position: relative; left: 493px; top: -200px">
 	<img height="300px" src="theme/fatal_error.jpg"/>

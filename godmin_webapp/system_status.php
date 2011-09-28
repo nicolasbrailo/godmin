@@ -4,14 +4,9 @@ include 'layout/header.php';
 ?>
 
 <h1>System status</h1>
-<? include_once 'print_services_status.php' ?>
-<ul>
-<? foreach ($services_bin_name as $svc=>$bin) { ?>
-        <li><? echo_server_status($svc, $bin) ?></li>
-<? } ?>
-</ul>
+<? include 'helpers/print_services_status.php' ?>
 
-<br/><br/>
+<br/><br/><br/>
 
 <h1>Router Logs</h1>
 <textarea class="smallbox">

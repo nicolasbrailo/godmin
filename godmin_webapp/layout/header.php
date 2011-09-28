@@ -59,6 +59,6 @@ $currentpage = str_replace('.php', '', $file[count($file) - 1]);
 
 <?
 $services_bin_name ['inexistent test service'] = 'nobin';
-include 'check_services_up.php';
+include 'helpers/check_services_up.php';
 ?>
 
