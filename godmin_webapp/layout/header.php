@@ -27,7 +27,7 @@ $currentpage = str_replace('.php', '', $file[count($file) - 1]);
         </li>
 
         <li<? if ($currentpage=="leases"){ ?> class="active"<? } ?>>
-                <a href="leases.php">Known DHCP Leases</a>
+                <a href="leases.php">DHCP Leases</a>
         </li>
 
         <li<? if ($currentpage=="static_hosts"){ ?> class="active"<? } ?>>
@@ -39,7 +39,7 @@ $currentpage = str_replace('.php', '', $file[count($file) - 1]);
         </li>
 
         <li<? if ($currentpage=="subnets"){ ?> class="active"<? } ?>>
-                <a href="subnets.php">Configure DHCP Subnets</a>
+                <a href="subnets.php">DHCP Subnets</a>
         </li>
 
         <li<? if ($currentpage=="dns_logs"){ ?> class="active"<? } ?>>

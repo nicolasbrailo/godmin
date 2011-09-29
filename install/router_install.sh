@@ -43,6 +43,7 @@ get_user_input 'Type a custom TLD for the network' 'lan' lan_tld
 get_user_input 'Type an IP for the WAN router (if any)' '' wan_router_ip
 get_user_input 'Enter the home directory for the router' '/home/router' router_home
 get_user_input 'Enter the listening port for Godmin' '8181' listen_port
+get_user_input 'Enter the listening port for the captive portal' '80' captive_portal
 
 mkdir -p $router_home
 
@@ -56,5 +57,5 @@ echo -e "\nSetting up DHCP server..."
 source set_dhcp.sh $lan_ip $lan_tld $router_home $wan_router_ip 
 
 echo -e "\nInstalling the webapp..."
-source set_webapp.sh $router_home $lan_ip $listen_port
+source set_webapp.sh $router_home $lan_ip $listen_port $captive_portal
 
