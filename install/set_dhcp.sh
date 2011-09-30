@@ -12,6 +12,7 @@ DHCP_CFG_TMPL=default_cfg/isc-dhcp/dhcpd.conf
 TMPL_VARS="LAN_TLD LAN_IP WAN_ROUTER_IP SUBNETS_CFG HOSTS_CFG WAN_NET_IP NET_IP"
 
 # dhcp config dirs
+DHCPD_CTL=/etc/init.d/isc-dhcp-server
 DHCPD_CFG=/etc/dhcp/dhcpd.conf
 DHCPD_DIR=$ROUTER_HOME/dhcp
 SUBNETS_CFG=$ROUTER_HOME/dhcp/subnets.conf
@@ -66,4 +67,6 @@ fi
 
 write_cfg_from_template $LAN_SUBNET_TMPL $SUBNETS_CFG "$TMPL_VARS"
 echo "Wrote subnets configuration to $SUBNETS_CFG"
+
+/.$DHCPD_CTL restart
 

@@ -4,6 +4,7 @@ LAN_IP=$1
 LAN_TLD=$2
 ROUTER_HOME=$3
 
+BIND_CTL=/etc/init.d/bind9
 BIND_CFG=/etc/bind/named.conf.local
 BIND_APPARMOR_CFG=/etc/apparmor.d/usr.sbin.named
 
@@ -12,7 +13,7 @@ ZONE_TEMPLATE=default_cfg/bind9/zone.cfg
 LOG_TEMPLATE=default_cfg/bind9/logging.cfg 
 DB_TEMPLATE=default_cfg/bind9/zone_db.cfg 
 DB_REV_TEMPLATE=default_cfg/bind9/zone_rev_db.cfg 
-TMPL_VARS="LAN_TLD BIND_TLD_REV_FILE BIND_TLD_REV BIND_LOGS BIND_TLD"
+TMPL_VARS="LAN_TLD BIND_TLD_REV_FILE BIND_TLD_REV BIND_LOGS BIND_TLD LAN_IP"
 
 # Get the name for the rev db. No idea why it's so complicated
 rev_ip1="$(echo $LAN_IP|awk -F'.' '{print $1}')"
@@ -76,4 +77,6 @@ else
 	write_cfg_from_template $DB_TEMPLATE $BIND_TLD "$TMPL_VARS"
 	echo "Created dns zone $BIND_TLD"
 fi
+
+/.$BIND_CTL restart
 

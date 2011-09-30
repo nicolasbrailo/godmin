@@ -4,7 +4,7 @@
 ROUTER_HOME=$1
 LAN_IP=$2
 LISTEN_PORT=$3
-CAPTIVE_PORTAL_PORT=$4
+LISTEN_PORT_CAPTIVE_PORTAL=$4
 
 # Webapp config
 WEBROOT_SRC=../godmin_webapp
@@ -31,7 +31,7 @@ HTACCESS_TMPL=default_cfg/webapp/htaccess
 HTPWD_TMPL=default_cfg/webapp/htpasswd
 GODMIN_VHOST_TMPL=default_cfg/webapp/godmin.cfg
 CAPTIVE_PORTAL_VHOST_TMPL=default_cfg/webapp/captive_portal.cfg
-TMPL_VARS="ROUTER_HOME WEBAPP_USER LAN_IP_PREFIX LISTEN_PORT CAPTIVE_PORTAL CAPTIVE_PORTAL_PORT"
+TMPL_VARS="ROUTER_HOME WEBAPP_USER LAN_IP_PREFIX LISTEN_PORT CAPTIVE_PORTAL LISTEN_PORT_CAPTIVE_PORTAL"
 
 lan_ip1="$(echo $LAN_IP|awk -F'.' '{print $1}')"
 lan_ip2="$(echo $LAN_IP|awk -F'.' '{print $2}')"
@@ -95,6 +95,8 @@ htpasswd $ROUTER_HOME/htpasswd admin
 
 
 # Enable both sites, the CP and Godmin
+# We assume this is a vanilla OS install...
+rm -f $APACHE_SITES_ENABLED/000-default
 ln -s $CAPTIVE_PORTAL_VHOST_FILE $APACHE_SITES_ENABLED/001-captive_portal
 ln -s $GODMIN_VHOST_FILE $APACHE_SITES_ENABLED/000-godmin
 

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+# TODO: The boot hooks are not working and they need to be manually installed to rc.local
+
+
 # Parameters from parent script (or CMD)
 WAN_IFACE=$1
 LAN_IFACE=$2
@@ -45,12 +49,15 @@ if [ ! -e $BLOCKS_SCRIPT_FILE ]; then
 fi
 
 
+
 # Write FWDS startup script
 if [ ! -e $START_FWDS_SCRIPT_FILE ]; then
 	write_cfg_from_template $START_FWDS_TMPL $START_FWDS_SCRIPT_FILE "$TMPL_VARS"
 else
 	warning "$START_FWDS_SCRIPT_FILE already exists. Won't write a new one."
 fi
+
+
 
 # Write restart script and its system hook
 if [ ! -e $RESTART_SCRIPT ]; then
@@ -60,14 +67,19 @@ if [ ! -e $IF_UP_HOOK ]; then
 	write_cfg_from_template $IF_UP_HOOK_TMPL $IF_UP_HOOK "$TMPL_VARS"
 	echo "Wrote hook in $IF_UP_HOOK to $RESTART_SCRIPT"
 fi
+
+chmod +x $FWDS_SCRIPT_FILE $BLOCKS_SCRIPT_FILE $START_FWDS_SCRIPT_FILE $RESTART_SCRIPT $IF_UP_HOOK
+
+
+
 if [ ! -e $RC_D_HOOK ]; then
 	write_cfg_from_template $RC_D_HOOK_TMPL $RC_D_HOOK "$TMPL_VARS"
+	chmod +x $RC_D_HOOK 
 	#update-rc.d -f godmin_router remove
 	update-rc.d godmin_router defaults
 	echo "Wrote hook in system restart script $RC_D_HOOK to $RESTART_SCRIPT"
 fi
 
-chmod +x $BLOCKS_SCRIPT_FILE $FWDS_SCRIPT_FILE $START_FWDS_SCRIPT_FILE $RESTART_SCRIPT $IF_UP_HOOK $RC_D_HOOK
 
 
 # If the interface is not already configured, add it to $IFACES_CFG
