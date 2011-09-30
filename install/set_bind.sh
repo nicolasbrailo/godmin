@@ -3,6 +3,7 @@
 LAN_IP=$1
 LAN_TLD=$2
 ROUTER_HOME=$3
+GROUP=www-data
 
 BIND_CTL=/etc/init.d/bind9
 BIND_CFG=/etc/bind/named.conf.local
@@ -66,6 +67,8 @@ if [ -e $BIND_TLD_REV_FILE ]; then
 	echo "A rev dns zone already exists for $BIND_TLD_REV, won't create another"
 else
 	write_cfg_from_template $DB_REV_TEMPLATE $BIND_TLD_REV_FILE "$TMPL_VARS"
+	chmod 774 $BIND_TLD_REV_FILE
+	chgrp $GROUP $BIND_TLD_REV_FILE
 	echo "Created reverse dns zone $BIND_TLD_REV"
 fi
 
@@ -75,6 +78,8 @@ if [ -e $BIND_TLD ]; then
 else
 	#TODO: Configure WAN IP?
 	write_cfg_from_template $DB_TEMPLATE $BIND_TLD "$TMPL_VARS"
+	chmod 774 $BIND_TLD
+	chgrp $GROUP $BIND_TLD
 	echo "Created dns zone $BIND_TLD"
 fi
 

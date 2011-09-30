@@ -10,7 +10,7 @@
 
 # General config
 define("ROUTER_LOG",            "$ROUTER_HOME/router.log");
-define("CAPTIVE_PORTAL_ADDR",   "192.168.10.1:80");
+define("CAPTIVE_PORTAL_ADDR",   "$LAN_IP:80");
 
 $services_bin_name = array();
 $services_bin_name['DHCP'] = 'dhcpd';

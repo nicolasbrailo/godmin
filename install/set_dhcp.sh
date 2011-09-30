@@ -4,6 +4,7 @@ LAN_IP=$1
 LAN_TLD=$2
 ROUTER_HOME=$3
 WAN_ROUTER_IP=$4
+GROUP=www-data
 
 # Templates used for dhcp
 LAN_SUBNET_TMPL=default_cfg/isc-dhcp/lan_subnet.cfg 
@@ -43,6 +44,8 @@ echo "Creating link to leases file from dhcp home dir"
 ln -s /var/lib/dhcp $ROUTER_HOME/dhcp/leases
 touch $HOSTS_CFG
 touch $SUBNETS_CFG
+chmod 774 $SUBNETS_CFG $HOSTS_CFG
+chgrp $GROUP $SUBNETS_CFG $HOSTS_CFG
 
 # Update security
 update_apparmor $DHCPD_APPARMOR_CFG $DHCPD_DIR
