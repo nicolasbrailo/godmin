@@ -43,6 +43,6 @@ define("RESTART_NAT_AND_FWDS",	"$ROUTER_HOME/sudo_scripts/restart_nat_and_fwds.s
 define("RESTART_CONTENT_FILTER",	"$ROUTER_HOME/sudo_scripts/restart_squid.sh");
 define("GENERATE_PROXY_REPORT",	"$ROUTER_HOME/sudo_scripts/generate_proxy_report.sh");
 define("CMD_GET_DHCP_LOG",       "$ROUTER_HOME/sudo_scripts/get_dhcp_logs.sh");
-
+define("CMD_GET_IPTABLES_STATUS","$ROUTER_HOME/sudo_scripts/print_iptables_rules.sh");
 
 ?>

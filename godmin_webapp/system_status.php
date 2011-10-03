@@ -54,5 +54,10 @@ if (isset($_REQUEST['restart']))
 <? system("sudo /bin/bash ".CMD_GET_DHCP_LOG) ?>
 </textarea>
 
+<h1>IP Tables Status</h1>
+<textarea class="smallbox">
+<? system("sudo /bin/bash ".CMD_GET_IPTABLES_STATUS) ?>
+</textarea>
+
 
 <? include 'layout/footer.php' ?>
