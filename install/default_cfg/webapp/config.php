@@ -44,5 +44,7 @@ define("RESTART_CONTENT_FILTER",	"$ROUTER_HOME/sudo_scripts/restart_squid.sh");
 define("GENERATE_PROXY_REPORT",	"$ROUTER_HOME/sudo_scripts/generate_proxy_report.sh");
 define("CMD_GET_DHCP_LOG",       "$ROUTER_HOME/sudo_scripts/get_dhcp_logs.sh");
 define("CMD_GET_IPTABLES_STATUS","$ROUTER_HOME/sudo_scripts/print_iptables_rules.sh");
+define("DISABLE_PROXY_CMD",    "$ROUTER_HOME/sudo_scripts/disable_content_filter.sh");
+define("ENABLE_PROXY_CMD",    "$ROUTER_HOME/sudo_scripts/enable_content_filter.sh");
 
 ?>

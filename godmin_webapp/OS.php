@@ -40,7 +40,7 @@ class OS
 	static function restart_content_filter()
 	{
 		echo "<pre>";
-		exec("sudo /bin/bash ".CONTENT_FILTER_RESTART);
+		exec("sudo /bin/bash ".RESTART_CONTENT_FILTER);
 		echo "</pre>";
 	}
 	
@@ -50,6 +50,20 @@ class OS
 		exec("sudo /bin/bash ".GENERATE_PROXY_REPORT);
 		echo "</pre>";
 	}
+
+    static function enable_proxy()
+    {
+        echo "<pre>";
+        exec("sudo /bin/bash ".ENABLE_PROXY_CMD);
+        echo "</pre>";
+    }
+
+    static function disable_proxy()
+    {
+        echo "<pre>";
+        exec("sudo /bin/bash ".DISABLE_PROXY_CMD);
+        echo "</pre>";
+    }
 
 }
 

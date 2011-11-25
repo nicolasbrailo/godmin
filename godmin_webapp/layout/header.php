@@ -62,6 +62,11 @@ $currentpage = str_replace('.php', '', $file[count($file) - 1]);
 <div id="content">
 
 <?
-include 'helpers/check_services_up.php';
+if ($currentpage != "system_status")
+{
+    // Sys status page has its own checker.
+    // TODO: Is there a prettier way of doing this?
+    include 'helpers/check_services_up.php';
+}
 ?>
 
